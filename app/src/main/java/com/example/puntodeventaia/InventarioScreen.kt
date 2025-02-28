@@ -1,4 +1,4 @@
-package com.example.puntodeventaia.ui
+package com.example.puntodeventaia
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -10,12 +10,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.NavController
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Inventario() {
+fun InventarioScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -94,5 +96,5 @@ fun DashboardButton(text: String, icon: String) {
 @Preview(showBackground = true)
 @Composable
 fun InventarioPreview() {
-    Inventario()
+    InventarioScreen()
 }

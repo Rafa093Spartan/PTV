@@ -1,4 +1,4 @@
-package com.example.puntodeventaia.ui
+package com.example.puntodeventaia
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -68,7 +68,7 @@ fun LoginScreen(navController: NavController) {
 
             // Botón de inicio de sesión con navegación a la pantalla de cobro
             Button(
-                onClick = { navController.navigate("cobro") },  // Redirige a la pantalla "Cobro"
+                onClick = { navController.navigate("menu_principal") },  // Redirige a la pantalla "Cobro"
                 modifier = Modifier.fillMaxWidth(0.6f),
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF001F3F))
             ) {
