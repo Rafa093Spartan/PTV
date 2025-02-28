@@ -7,22 +7,22 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.puntodeventaia.R
 import com.example.puntodeventaia.ui.theme.PuntoDeVentaIaTheme
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(navController: NavController? = null) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFF2F2F2)), // Fondo claro
+            .background(Color(0xFFF2F2F2)),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween
     ) {
@@ -30,10 +30,9 @@ fun LoginScreen() {
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1f)
-                .padding(top = 125.dp), // Añadir espacio superior
+                .padding(top = 125.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Logo
             Image(
                 painter = painterResource(id = R.drawable.logo),
                 contentDescription = "Logo de la app",
@@ -43,7 +42,6 @@ fun LoginScreen() {
             )
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Campos de texto
             var email by remember { mutableStateOf("") }
             var password by remember { mutableStateOf("") }
 
@@ -64,9 +62,8 @@ fun LoginScreen() {
             )
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Botón de inicio de sesión
             Button(
-                onClick = { /* Acción de login */ },
+                onClick = { navController?.navigate("caja") },
                 modifier = Modifier.fillMaxWidth(0.6f),
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF001F3F))
             ) {
@@ -74,7 +71,6 @@ fun LoginScreen() {
             }
         }
 
-        // Sección de botones con fondo gris limitado al 35% inferior
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -84,16 +80,13 @@ fun LoginScreen() {
             contentAlignment = Alignment.Center
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                // Enlace para crear cuenta
                 Row {
                     Text("Crear Cuenta", fontWeight = FontWeight.Bold, color = Color.Blue)
                 }
                 Spacer(modifier = Modifier.height(8.dp))
 
                 Text(
-                    text = "iniciar otro servicio",
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Bold,
+                    text = "Iniciar sesión con otra cuenta",
                     color = Color.Black
                 )
                 Spacer(modifier = Modifier.height(8.dp))
@@ -106,7 +99,7 @@ fun LoginScreen() {
                 ) {
                     Image(
                         painter = painterResource(id = R.drawable.google_logo),
-                        contentDescription = "Logo de la app",
+                        contentDescription = "Google Logo",
                         modifier = Modifier
                             .height(20.dp)
                             .width(20.dp)
@@ -124,7 +117,7 @@ fun LoginScreen() {
                 ) {
                     Image(
                         painter = painterResource(id = R.drawable.facebook_logo),
-                        contentDescription = "Logo de la app",
+                        contentDescription = "Facebook Logo",
                         modifier = Modifier
                             .height(20.dp)
                             .width(20.dp)
