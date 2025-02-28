@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="390dp"
+            android:layout_marginBottom="489dp"
+            android:fontFamily="monospace"
+            android:textAlignment="viewStart"
+            android:textColor="#121212"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Contraseña" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="98dp"
+            android:contentDescription="@string/app_name"
+            android:paddingTop="10dp"
+            android:src="@drawable/logo_cashup"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="left"
+            app:constraint_referenced_ids="imageView4" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:textAlignment="viewStart"
+            android:textColor="#121212"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="289dp"
+            tools:text="Email" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="365dp"
+            android:layout_height="48dp"
+            android:autofillHints="emailAddress"
+            android:background="@drawable/rounded_edittext"
+            android:ems="10"
+            android:hint="@string/hint_email"
+            android:inputType="textEmailAddress"
+            android:textColorHint="#999999"
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="325dp" />
+
+        <EditText
+            android:id="@+id/editTextTextPassword"
+            android:layout_width="365dp"
+            android:layout_height="48dp"
+            android:autofillHints="password"
+            android:background="@drawable/rounded_edittext"
+            android:ems="10"
+            android:hint="@string/hint_password"
+            android:inputType="textPassword"
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="425dp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_edittext"
+            android:backgroundTint="#021140"
+            android:paddingHorizontal="50dp"
+            android:text="@string/button_login"
+            android:textAllCaps="false"
+            android:textAppearance="@android:style/TextAppearance.Material.Display4"
+            android:textColor="#F2F2F2"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:typeface="normal"
+            tools:layout_editor_absoluteX="93dp"
+            tools:layout_editor_absoluteY="515dp"
+            tools:ignore="VisualLintOverlap" />
+
+        <!-- Cuadro gris en la parte inferior -->
+
+        <!-- Botón de "Continuar con Google" -->
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="413dp"
+            android:layout_height="302dp"
+            android:background="@drawable/rounded_bottom_sheet"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="VisualLintBounds" />
+
+        <LinearLayout
+            android:id="@+id/buttonGoogleLayout"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+        </LinearLayout>
+
+        <!-- Botón de "Continuar con Facebook" -->
+
+        <LinearLayout
+            android:id="@+id/buttonFacebookLayout"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_edittext"
+            android:backgroundTint="#021140"
+            android:paddingHorizontal="50dp"
+            android:text="@string/button_register"
+            android:textAllCaps="false"
+            android:textAppearance="@android:style/TextAppearance.Material.Display4"
+            android:textColor="#F2F2F2"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:typeface="normal"
+            tools:layout_editor_absoluteX="96dp"
+            tools:layout_editor_absoluteY="624dp" />
+
+        <Button
+            android:id="@+id/buttonFacebook"
+            android:layout_width="208dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_edittext"
+            android:backgroundTint="#021140"
+            android:padding="16dp"
+            android:text="@string/button_auth_facebook"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="104dp"
+            tools:layout_editor_absoluteY="742dp" />
+
+        <Button
+            android:id="@+id/buttonGoogle"
+            android:layout_width="208dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_edittext"
+            android:backgroundTint="#021140"
+            android:padding="16dp"
+            android:text="@string/button_auth_google"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            tools:ignore="VisualLintBounds,TextSizeCheck"
+            tools:layout_editor_absoluteX="104dp"
+            tools:layout_editor_absoluteY="808dp" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="@string/logo_google"
+            android:src="@drawable/google_logo"
+            tools:layout_editor_absoluteX="58dp"
+            tools:layout_editor_absoluteY="820dp"
+            tools:ignore="VisualLintBounds" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="@string/logo_facebook"
+            android:src="@drawable/facebook_logo"
+            tools:layout_editor_absoluteX="58dp"
+            tools:layout_editor_absoluteY="752dp" />
+
+        <EditText
+            android:id="@+id/editTextText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:paddingLeft="10dp"
+            android:text="@string/divisor_login"
+            tools:layout_editor_absoluteX="100dp"
+            tools:layout_editor_absoluteY="683dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

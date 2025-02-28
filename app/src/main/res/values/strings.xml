@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">PuntoDeVentaIa</string>
+    <string name="hint_email">Ingrese su correo electrónico</string>
+    <string name="hint_password">Ingrese la contraseña</string>
+    <string name="button_login">Iniciar Sesion</string>
+    <string name="button_register">Crear Cuenta</string>
+    <string name="button_auth_google">Continuar con Google</string>
+    <string name="button_auth_facebook">Continuar con Facebook</string>
+    <string name="divisor_login">iniciar con otro servicio:</string>
+    <string name="descripcion_logo">logo</string>
+    <string name="logo_google">logo google</string>
+    <string name="logo_facebook">logo facebook</string>
 </resources>
