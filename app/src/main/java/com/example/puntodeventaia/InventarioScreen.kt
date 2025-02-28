@@ -11,13 +11,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.NavController
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun InventarioScreen() {
+fun InventarioScreen(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -96,5 +96,5 @@ fun DashboardButton(text: String, icon: String) {
 @Preview(showBackground = true)
 @Composable
 fun InventarioPreview() {
-    InventarioScreen()
+    InventarioScreen(navController = rememberNavController())
 }

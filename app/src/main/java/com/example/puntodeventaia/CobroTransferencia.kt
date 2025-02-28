@@ -2,6 +2,8 @@ package com.example.puntodeventaia
 
 import android.content.Context
 import android.widget.TextView
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 

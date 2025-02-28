@@ -25,5 +25,6 @@ fun AppNavigator() {
         composable("cobro")           { CobroScreen(navController) }
         composable("ticket")          { TicketScreen(navController) }
         composable("menu_principal")  { MenuPrincipalScreen(navController) } // Agregado correctamente
+        composable("inventario")  { InventarioScreen(navController) }
     }
 }
