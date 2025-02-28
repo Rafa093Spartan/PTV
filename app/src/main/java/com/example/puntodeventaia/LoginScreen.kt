@@ -104,7 +104,13 @@ fun LoginScreen() {
                     colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF001F3F)),
                     shape = RoundedCornerShape(24.dp)
                 ) {
-                    Text("[Google Logo]", color = Color.White)
+                    Image(
+                        painter = painterResource(id = R.drawable.google_logo),
+                        contentDescription = "Logo de la app",
+                        modifier = Modifier
+                            .height(20.dp)
+                            .width(20.dp)
+                    )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text("Continuar con Google", color = Color.White)
                 }
@@ -116,7 +122,13 @@ fun LoginScreen() {
                     colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF001F3F)),
                     shape = RoundedCornerShape(24.dp)
                 ) {
-                    Text("[Facebook Logo]", color = Color.White)
+                    Image(
+                        painter = painterResource(id = R.drawable.facebook_logo),
+                        contentDescription = "Logo de la app",
+                        modifier = Modifier
+                            .height(20.dp)
+                            .width(20.dp)
+                    )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text("Continuar con Facebook", color = Color.White)
                 }
