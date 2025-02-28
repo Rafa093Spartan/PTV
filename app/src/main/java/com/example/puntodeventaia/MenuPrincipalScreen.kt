@@ -48,8 +48,8 @@ fun MenuPrincipalScreen(navController: NavController) {
 
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
-                        MenuButton("📦 Ventas") {}
-                        MenuButton("📦 Inventario") {}
+                        MenuButton("📦 Ventas") { navController.navigate("ticket") }
+                        MenuButton("📦 Inventario") { navController.navigate("inventario") }
                     }
                     Spacer(modifier = Modifier.height(16.dp))
                     Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {

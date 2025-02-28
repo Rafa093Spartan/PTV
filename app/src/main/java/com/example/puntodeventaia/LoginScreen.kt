@@ -66,7 +66,7 @@ fun LoginScreen(navController: NavController) {
             )
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Botón de inicio de sesión con navegación a la pantalla de cobro
+            // Botón de inicio de sesión con navegación a la pantalla de menu
             Button(
                 onClick = { navController.navigate("menu_principal") },  // Redirige a la pantalla "Cobro"
                 modifier = Modifier.fillMaxWidth(0.6f),
