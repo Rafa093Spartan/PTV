@@ -40,6 +40,7 @@ android {
 }
 
 dependencies {
+    implementation ("androidx.compose.material:material-icons-extended:1.4.3")
     implementation("androidx.compose.ui:ui-tooling-preview:1.7.8")
     implementation("androidx.compose.material:material:1.7.8")
     implementation("androidx.compose.ui:ui-tooling-preview:1.7.8")
