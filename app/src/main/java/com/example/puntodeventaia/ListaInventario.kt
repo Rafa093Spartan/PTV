@@ -25,7 +25,7 @@ fun ListaInventario(navController: NavController) {
 
     ModalNavigationDrawer(
         drawerContent = {
-            DrawerMenu { }
+          //  DrawerMenu { }
         }
     ) {
         Column(

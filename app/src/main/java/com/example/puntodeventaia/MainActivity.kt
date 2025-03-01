@@ -24,12 +24,16 @@ fun AppNavigator() {
         composable("login")           { LoginScreen(navController) }
         composable("cobro")           { CobroScreen(navController) }
         composable("ticket")          { TicketScreen(navController) }
-        composable("menu_principal")  { MenuPrincipalScreen(navController) } // Agregado correctamente
+        composable("menu_principal")  { MenuPrincipalScreen(navController) }
         composable("inventario")      { InventarioScreen(navController) }
         composable("lista_inventario") { ListaInventario(navController) }
         composable("alertas_screen") { AlertasScreen(navController) }
-        composable("reportes")         { ReportesScreen(navController) } // Nueva pantalla agregada
+        composable("reportes")        { ReportesScreen(navController) }
         composable("editar_productos") { EditarProductosScreen(navController) }
-
+        composable("efectivo")        { EfectivoScreen(navController) }
+        composable("tarjeta")         { CardScreen(navController) }
+        composable("transferencia")   { TransferenciaScreen(navController) }
+        composable("qr")              { QRScreen(navController) }
+        composable("billetera_digital") { DigitalWalletScreen(navController) }
     }
 }

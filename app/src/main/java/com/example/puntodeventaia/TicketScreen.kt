@@ -23,7 +23,7 @@ fun TicketScreen(navController: NavController) {
 
     ModalNavigationDrawer(
         drawerContent = {
-            DrawerMenu { menuOpen = false }
+            //DrawerMenu { menuOpen = false }
         },
         gesturesEnabled = menuOpen
     ) {
