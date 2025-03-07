@@ -14,13 +14,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.example.puntodeventaia.R
 import com.example.puntodeventaia.ui.theme.PuntoDeVentaIaTheme
 
 @Composable
-fun LoginScreen(navController: NavController) {
+fun LoginScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -66,9 +64,9 @@ fun LoginScreen(navController: NavController) {
             )
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Botón de inicio de sesión con navegación a la pantalla de cobro
+            // Botón de inicio de sesión
             Button(
-                onClick = { navController.navigate("cobro") },  // Redirige a la pantalla "Cobro"
+                onClick = { /* Acción de login */ },
                 modifier = Modifier.fillMaxWidth(0.6f),
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF001F3F))
             ) {
@@ -76,7 +74,7 @@ fun LoginScreen(navController: NavController) {
             }
         }
 
-        // Sección de botones con fondo gris en la parte inferior
+        // Sección de botones con fondo gris limitado al 35% inferior
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -87,11 +85,13 @@ fun LoginScreen(navController: NavController) {
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 // Enlace para crear cuenta
-                Text("Crear Cuenta", fontWeight = FontWeight.Bold, color = Color.Blue)
+                Row {
+                    Text("Crear Cuenta", fontWeight = FontWeight.Bold, color = Color.Blue)
+                }
                 Spacer(modifier = Modifier.height(8.dp))
 
                 Text(
-                    text = "Iniciar otro servicio",
+                    text = "iniciar otro servicio",
                     fontSize = 14.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color.Black
@@ -106,7 +106,7 @@ fun LoginScreen(navController: NavController) {
                 ) {
                     Image(
                         painter = painterResource(id = R.drawable.google_logo),
-                        contentDescription = "Google",
+                        contentDescription = "Logo de la app",
                         modifier = Modifier
                             .height(20.dp)
                             .width(20.dp)
@@ -124,7 +124,7 @@ fun LoginScreen(navController: NavController) {
                 ) {
                     Image(
                         painter = painterResource(id = R.drawable.facebook_logo),
-                        contentDescription = "Facebook",
+                        contentDescription = "Logo de la app",
                         modifier = Modifier
                             .height(20.dp)
                             .width(20.dp)
@@ -141,12 +141,6 @@ fun LoginScreen(navController: NavController) {
 @Composable
 fun LoginScreenPreview() {
     PuntoDeVentaIaTheme {
-        LoginScreen(navController = FakeNavController()) // FakeNavController solo para preview
+        LoginScreen()
     }
-}
-
-// Controlador de navegación falso para la vista previa
-@Composable
-fun FakeNavController(): NavController {
-    return rememberNavController()
 }
