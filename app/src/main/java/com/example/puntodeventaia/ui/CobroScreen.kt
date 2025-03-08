@@ -2,6 +2,7 @@ package com.example.puntodeventaia
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -28,9 +29,7 @@ fun CobroScreen(navController: NavController) {
 
     ModalNavigationDrawer(
         drawerContent = {
-            DrawerMenu {
-                scope.launch { drawerState.close() }
-            }
+            Text("Menú")
         },
         drawerState = drawerState
     ) {
@@ -40,7 +39,6 @@ fun CobroScreen(navController: NavController) {
                 .background(Color(0xFFF2F2F2)),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Encabezado con botón de menú
             TopAppBar(
                 title = { Text("Cobro", color = Color.White) },
                 navigationIcon = {
@@ -53,7 +51,6 @@ fun CobroScreen(navController: NavController) {
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Tarjeta principal
             Box(
                 modifier = Modifier
                     .fillMaxWidth(0.9f)
@@ -76,31 +73,30 @@ fun CobroScreen(navController: NavController) {
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceEvenly
                         ) {
-                            CobroButton(text = "Efectivo", icon = "💵")
-                            CobroButton(text = "Tarjeta", icon = "💳")
+                            CobroButton(text = "Efectivo", icon = "💵") { navController.navigate("efectivo") }
+                            CobroButton(text = "Tarjeta", icon = "💳") { navController.navigate("tarjeta") }
                         }
                         Spacer(modifier = Modifier.height(20.dp))
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceEvenly
                         ) {
-                            CobroButton(text = "Transferencia", icon = "🏦")
-                            CobroButton(text = "QR", icon = "📱")
+                            CobroButton(text = "Transferencia", icon = "🏦") { navController.navigate("transferencia") }
+                            CobroButton(text = "QR", icon = "📱") { navController.navigate("qr") }
                         }
                         Spacer(modifier = Modifier.height(20.dp))
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceEvenly
                         ) {
-                            CobroButton(text = "Puntos de cliente", icon = "🔘")
-                            CobroButton(text = "Cartera digital", icon = "👛")
+                            CobroButton(text = "Puntos de cliente", icon = "🔘") {}
+                            CobroButton(text = "Cartera digital", icon = "👛") { navController.navigate("billetera_digital") }
                         }
                     }
                 }
             }
 
             Spacer(modifier = Modifier.height(16.dp))
-            // Botón de regresar
             Button(
                 onClick = { navController.popBackStack() },
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF253659)),
@@ -112,65 +108,13 @@ fun CobroScreen(navController: NavController) {
     }
 }
 
-// Menú lateral
 @Composable
-fun DrawerMenu(onClose: () -> Unit) {
-    Column(
-        modifier = Modifier
-            .fillMaxHeight()
-            .width(250.dp)
-            .background(Color(0xFF3D4F73)),
-        horizontalAlignment = Alignment.Start
-    ) {
-        Spacer(modifier = Modifier.height(20.dp))
-        Row(
-            modifier = Modifier.padding(start = 16.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.google_logo),
-                contentDescription = "Perfil",
-                modifier = Modifier
-                    .size(40.dp)
-                    .background(Color.Gray, shape = RoundedCornerShape(50))
-            )
-            Spacer(modifier = Modifier.width(8.dp))
-            Text("Sarah", color = Color.White, fontWeight = FontWeight.Bold)
-        }
-        HorizontalDivider(modifier = Modifier.padding(16.dp), thickness = 1.dp, color = Color.White)
-
-        DrawerItem("📦 VENTAS", onClose)
-        DrawerItem("📦 INVENTARIO", onClose)
-        DrawerItem("💲 TRANSACCIONES", onClose)
-        DrawerItem("👤 USUARIOS", onClose)
-        DrawerItem("🛡️ POLÍTICAS DE USO", onClose)
-
-        Spacer(modifier = Modifier.weight(1f))
-        Text("BETA 1.0", fontSize = 12.sp, color = Color.LightGray, modifier = Modifier.padding(16.dp))
-    }
-}
-
-// Elementos del menú
-@Composable
-fun DrawerItem(text: String, onClose: () -> Unit) {
-    TextButton(
-        onClick = onClose,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 8.dp),
-        colors = ButtonDefaults.textButtonColors(contentColor = Color.White)
-    ) {
-        Text(text, fontSize = 16.sp)
-    }
-}
-
-// Botón de pago
-@Composable
-fun CobroButton(text: String, icon: String) {
+fun CobroButton(text: String, icon: String, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .size(100.dp)
-            .padding(8.dp),
+            .padding(8.dp)
+            .clickable(onClick = onClick),
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
         elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
@@ -188,8 +132,8 @@ fun CobroButton(text: String, icon: String) {
     }
 }
 
-@Preview(showBackground = true)
 @Composable
+@Preview(showBackground = true)
 fun CobroScreenPreview() {
     CobroScreen(navController = rememberNavController())
 }

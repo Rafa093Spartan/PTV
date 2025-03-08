@@ -23,7 +23,7 @@ fun TicketScreen(navController: NavController) {
 
     ModalNavigationDrawer(
         drawerContent = {
-            DrawerMenu { menuOpen = false }
+            //DrawerMenu { menuOpen = false }
         },
         gesturesEnabled = menuOpen
     ) {
@@ -84,7 +84,7 @@ fun TicketScreen(navController: NavController) {
                         Button(onClick = { /* Acción cancelar */ }) {
                             Text("Cancelar")
                         }
-                        Button(onClick = { /* Acción cobrar */ }) {
+                        Button(onClick = { navController.navigate("cobro") }) {
                             Text("Cobrar")
                         }
                     }

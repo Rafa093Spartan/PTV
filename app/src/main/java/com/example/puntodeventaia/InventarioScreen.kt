@@ -1,6 +1,7 @@
-package com.example.puntodeventaia.ui
+package com.example.puntodeventaia
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -10,12 +11,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Inventario() {
+fun InventarioScreen(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -39,9 +42,9 @@ fun Inventario() {
         Box(
             modifier = Modifier
                 .fillMaxWidth(0.9f)
-                .fillMaxHeight(0.9f) // Ajustado al 90% de la pantalla
+                .fillMaxHeight(0.8f) // Ajustado para dejar espacio al botón de regresar
                 .background(Color(0xFF3D4F73), shape = RoundedCornerShape(16.dp))
-                .padding(24.dp), // Más padding para mejor estética
+                .padding(24.dp),
             contentAlignment = Alignment.Center
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -55,35 +58,58 @@ fun Inventario() {
 
                 // Opciones en cuadrícula mejor distribuidas
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
-                    DashboardButton(text = "Productos", icon = "📦")
-                    DashboardButton(text = "Editar\nproductos", icon = "✏️")
+                    com.example.puntodeventaia.ui.DashboardButton(
+                        text = "Productos",
+                        icon = "📦"
+                    ) { navController.navigate("lista_inventario") }
+                    com.example.puntodeventaia.ui.DashboardButton(
+                        text = "Editar\nproductos",
+                        icon = "✏️"
+                    ) { navController.navigate("editar_productos") }
                 }
                 Spacer(modifier = Modifier.height(20.dp))
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
-                    DashboardButton(text = "Alertas", icon = "⚠️")
-                    DashboardButton(text = "Reportes", icon = "📊")
+                    com.example.puntodeventaia.ui.DashboardButton(
+                        text = "Alertas",
+                        icon = "⚠️"
+                    ) { navController.navigate("Alertas_Screen") }
+                    com.example.puntodeventaia.ui.DashboardButton(
+                        text = "Reportes",
+                        icon = "📊"
+                    ) { navController.navigate("reportes") }
                 }
             }
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Botón de regresar
+        Button(
+            onClick = { navController.popBackStack() },
+            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF253659))
+        ) {
+            Text("⬅ Regresar")
         }
     }
 }
 
 @Composable
-fun DashboardButton(text: String, icon: String) {
+fun DashboardButton(text: String, icon: String, onClick: () -> Unit) {
     Card(
         modifier = Modifier
-            .size(110.dp) // Un poco más grande para mejor legibilidad
-            .padding(8.dp),
+            .size(110.dp)
+            .padding(8.dp)
+            .clickable { onClick() }, // Ahora usa el onClick recibido como parámetro
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp) // Sombra para resaltar
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier.fillMaxSize()
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(icon, fontSize = 28.sp, color = Color(0xFF2C3E50)) // Icono más grande
+                Text(icon, fontSize = 28.sp, color = Color(0xFF2C3E50))
                 Spacer(modifier = Modifier.height(6.dp))
                 Text(text, fontSize = 14.sp, fontWeight = FontWeight.Bold, color = Color.Black)
             }
@@ -94,5 +120,6 @@ fun DashboardButton(text: String, icon: String) {
 @Preview(showBackground = true)
 @Composable
 fun InventarioPreview() {
-    Inventario()
+    val navController = rememberNavController()
+    InventarioScreen(navController)
 }
